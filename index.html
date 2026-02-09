@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mohamed Alaa Hussein | Data Engineering Portfolio</title>
+  <meta name="description" content="Mohamed Alaa Hussein — Data Engineering (DEPI/MCIT) — Systems mindset — Python • SQL • ETL/ELT • Data Modeling" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root{
+      --bg: #060a0f;
+      --panel: #0b111a;
+      --text: #e6f0ff;
+      --muted: rgba(230,240,255,.70);
+      --neon: #18e7d7;
+      --neon2:#22c7ff;
+      --border: rgba(255,255,255,.08);
+      --shadow: 0 22px 80px rgba(0,0,0,.55);
+      --radius: 22px;
+    }
+
+    html, body { height:100%; background: var(--bg); color: var(--text); scroll-behavior:smooth; }
+    body { overflow-x: hidden; }
+
+    /* Background: grid + glow + vignette */
+    body::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(1000px 580px at 18% 16%, rgba(24,231,215,.14), transparent 60%),
+        radial-gradient(820px 520px at 78% 26%, rgba(34,199,255,.12), transparent 60%),
+        radial-gradient(920px 620px at 50% 98%, rgba(0,0,0,.70), transparent 60%),
+        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: auto, auto, auto, 52px 52px, 52px 52px;
+      opacity: 1;
+      z-index: -3;
+    }
+
+    /* Fine noise (subtle) */
+    body::after{
+      content:"";
+      position: fixed;
+      inset:0;
+      pointer-events:none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
+      opacity: .08;
+      z-index:-2;
+      mix-blend-mode: overlay;
+    }
+
+    .muted{ color: var(--muted); }
+    .accent{ color: var(--neon); }
+
+    .panel{
+      background: color-mix(in srgb, var(--panel) 78%, transparent);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    /* Neon glow helper */
+    .neon-glow{
+      box-shadow:
+        0 0 0 1px rgba(24,231,215,.22),
+        0 0 36px rgba(24,231,215,.15),
+        0 0 110px rgba(34,199,255,.10);
+    }
+
+    /* Premium animated border */
+    .neon-border{
+      position: relative;
+      isolation: isolate;
+    }
+    .neon-border::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      border-radius: calc(var(--radius) + 2px);
+      background: conic-gradient(
+        from 180deg,
+        rgba(24,231,215,.0),
+        rgba(24,231,215,.65),
+        rgba(34,199,255,.55),
+        rgba(24,231,215,.0)
+      );
+      filter: blur(10px);
+      opacity: .45;
+      z-index: -1;
+      animation: spin 8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Reveal animation */
+    .reveal{ opacity:0; transform: translateY(16px); transition: .75s ease; }
+    .reveal.in{ opacity:1; transform: translateY(0); }
+
+    /* Nav active */
+    .nav-link.active{
+      color: white;
+      text-shadow: 0 0 18px rgba(24,231,215,.30);
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    /* Mobile menu */
+    .nav-menu{ display:none; }
+    .nav-menu.open{ display:flex; }
+    @media (min-width:768px){
+      .nav-menu{ display:flex !important; }
+    }
+
+    /* Cursor glow */
+    .cursor-glow{
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: radial-gradient(circle at center, rgba(24,231,215,.10), transparent 60%);
+      transform: translate(-50%, -50%);
+      z-index:-1;
+      filter: blur(2px);
+      opacity: .65;
+    }
+
+    /* Smooth card tilt */
+    .tilt{
+      transform-style: preserve-3d;
+      transition: transform .15s ease, box-shadow .25s ease;
+    }
+
+    /* Typewriter caret */
+    .caret{
+      display:inline-block;
+      width: 10px;
+      height: 18px;
+      margin-left: 6px;
+      background: rgba(24,231,215,.9);
+      box-shadow: 0 0 18px rgba(24,231,215,.40);
+      animation: blink 1s step-end infinite;
+      vertical-align: -2px;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* Subtle gradient text */
+    .grad-text{
+      background: linear-gradient(90deg, rgba(24,231,215,1), rgba(34,199,255,1));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen selection:bg-white/10 selection:text-white">
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Top Nav -->
+  <header class="sticky top-0 z-50 border-b border-white/5 bg-black/20 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+      <a href="#home" class="flex items-center gap-3">
+        <span class="text-[18px] font-semibold tracking-tight grad-text">&lt;MAH/&gt;</span>
+        <span class="hidden text-xs text-white/50 sm:block">Data Engineering Portfolio</span>
+      </a>
+
+      <button class="nav-toggle neon-glow md:hidden grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/5 text-white/80"
+              type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+        <i data-lucide="menu" class="h-5 w-5"></i>
+      </button>
+
+      <nav id="navMenu"
+           class="nav-menu panel absolute left-5 right-5 top-[70px] flex-col gap-2 p-3 md:static md:flex-row md:items-center md:gap-2 md:p-0 md:border-0 md:bg-transparent md:shadow-none md:backdrop-blur-0 md:rounded-none"
+           aria-label="Navigation">
+
+        <a class="nav-link rounded-xl px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/5"
+           href="#home">Home</a>
+        <a class="nav-link rounded-xl px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/5"
+           href="#about">About</a>
+        <a class="nav-link rounded-xl px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/5"
+           href="#skills">Skills</a>
+        <a class="nav-link rounded-xl px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/5"
+           href="#projects">Projects</a>
+        <a class="nav-link rounded-xl px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/5"
+           href="#timeline">Timeline</a>
+        <a class="nav-link rounded-xl px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/5"
+           href="#contact">Contact</a>
+
+        <div class="hidden md:block mx-2 h-6 w-px bg-white/10"></div>
+
+        <a class="neon-glow inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--neon)] px-4 py-2 text-sm font-semibold text-black hover:brightness-110"
+           href="#projects">
+          <i data-lucide="sparkles" class="h-4 w-4"></i>
+          View Work
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="mx-auto max-w-6xl px-5 pt-14 pb-10 md:pt-20 md:pb-14">
+    <div class="grid items-center gap-12 md:grid-cols-2">
+      <!-- Left -->
+      <div class="reveal">
+        <div class="inline-flex items-center gap-2 rounded-full border border-[rgba(24,231,215,.25)] bg-[rgba(24,231,215,.06)] px-4 py-2 text-xs text-[var(--neon)]">
+          <span class="opacity-90">&lt;Data Engineer (Trainee) /&gt;</span>
+          <span class="text-white/30">•</span>
+          <span class="text-white/60">DEPI • MCIT</span>
+        </div>
+
+        <h1 class="mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">
+          Mohamed Alaa<br />
+          <span class="grad-text">Hussein</span>
+        </h1>
+
+        <p class="mt-5 max-w-xl text-sm leading-7 text-white/60">
+          4th-year <span class="text-white/80">Communications & Electronics Engineering</span> student.
+          I design <span class="text-white/80">reliable data pipelines</span> and analytics-ready datasets —
+          engineered with a systems mindset, not quick scripts.
+        </p>
+
+        <!-- Typewriter roles -->
+        <div class="mt-5 panel p-4 neon-border">
+          <div class="flex items-start justify-between gap-4 flex-wrap">
+            <div>
+              <p class="text-xs text-white/50">Core Value</p>
+              <p class="mt-1 text-sm font-semibold text-white">
+                I build <span class="text-[var(--neon)]">production-grade</span> pipelines:
+                <span class="text-white/80"> scalable</span>, <span class="text-white/80">observable</span>, <span class="text-white/80">maintainable</span>.
+              </p>
+            </div>
+            <div class="text-right">
+              <p class="text-xs text-white/50">Right now</p>
+              <p class="mt-1 text-sm font-semibold text-white">
+                <span id="tw"></span><span class="caret"></span>
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-3 grid gap-3 md:grid-cols-3">
+            <div class="panel px-4 py-3">
+              <p class="text-xs text-white/50">Focus</p>
+              <p class="mt-1 text-sm font-semibold text-white">ETL / ELT</p>
+            </div>
+            <div class="panel px-4 py-3">
+              <p class="text-xs text-white/50">Stack</p>
+              <p class="mt-1 text-sm font-semibold text-white">Python • SQL</p>
+            </div>
+            <div class="panel px-4 py-3">
+              <p class="text-xs text-white/50">Quality</p>
+              <p class="mt-1 text-sm font-semibold text-white">Validation • Logging</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="mt-7 flex flex-wrap items-center gap-3">
+          <a class="neon-glow inline-flex items-center gap-2 rounded-xl bg-[var(--neon)] px-5 py-3 text-sm font-semibold text-black hover:brightness-110"
+             href="#projects">
+            <i data-lucide="rocket" class="h-[18px] w-[18px]"></i>
+            Explore Projects
+          </a>
+
+          <!-- Put cv.pdf next to index.html in your repo -->
+          <a class="panel inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white/85 hover:bg-white/5"
+             href="cv.pdf" download>
+            <i data-lucide="download" class="h-[18px] w-[18px]"></i>
+            Download Resume
+          </a>
+
+          <a class="panel neon-glow grid h-11 w-11 place-items-center rounded-xl text-white/80 hover:bg-white/5"
+             href="https://www.linkedin.com/in/mohammed-alaa-engineer/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i data-lucide="linkedin" class="h-[18px] w-[18px]"></i>
+          </a>
+
+          <a class="panel neon-glow grid h-11 w-11 place-items-center rounded-xl text-white/80 hover:bg-white/5"
+             href="https://github.com/mohamedalaah5ss-oss" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i data-lucide="github" class="h-[18px] w-[18px]"></i>
+          </a>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-3 text-xs text-white/55">
+          <span class="panel px-3 py-2">🎓 4th Year Engineer</span>
+          <span class="panel px-3 py-2">⚡ DEPI Data Engineering • MCIT</span>
+          <span class="panel px-3 py-2">📌 Open for internships</span>
+        </div>
+      </div>
+
+      <!-- Right: premium identity card -->
+      <div class="reveal flex justify-center md:justify-end">
+        <div class="panel neon-glow neon-border w-full max-w-[420px] p-6">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="grid h-11 w-11 place-items-center rounded-2xl bg-white/5 border border-white/10">
+                <i data-lucide="cpu" class="h-5 w-5 text-[var(--neon)]"></i>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-white">Systems → Data Engineering</p>
+                <p class="text-xs text-white/50">Engineered pipelines, not hacks.</p>
+              </div>
+            </div>
+
+            <span class="text-[10px] text-white/60 border border-white/10 rounded-full px-3 py-2">
+              v2026 • neon build
+            </span>
+          </div>
+
+          <div class="mt-6 grid gap-3 md:grid-cols-2">
+            <div class="panel p-4">
+              <p class="text-xs text-white/50">Strength</p>
+              <p class="mt-1 text-sm font-semibold text-white">Data Modeling</p>
+              <p class="mt-1 text-xs text-white/55">Clean schemas for analytics.</p>
+            </div>
+            <div class="panel p-4">
+              <p class="text-xs text-white/50">Strength</p>
+              <p class="mt-1 text-sm font-semibold text-white">Pipeline Reliability</p>
+              <p class="mt-1 text-xs text-white/55">Validation + logging by default.</p>
+            </div>
+            <div class="panel p-4">
+              <p class="text-xs text-white/50">Mindset</p>
+              <p class="mt-1 text-sm font-semibold text-white">Systems Thinking</p>
+              <p class="mt-1 text-xs text-white/55">Performance & maintainability.</p>
+            </div>
+            <div class="panel p-4">
+              <p class="text-xs text-white/50">Goal</p>
+              <p class="mt-1 text-sm font-semibold text-white">Production-ready</p>
+              <p class="mt-1 text-xs text-white/55">Ship, monitor, improve.</p>
+            </div>
+          </div>
+
+          <div class="mt-6 flex items-center justify-between gap-3 flex-wrap">
+            <div class="text-xs text-white/50">
+              Email: <span class="text-white/80" id="emailInline">mohamedalaah5ss@gmail.com</span>
+            </div>
+            <button id="copyEmailInline"
+                    class="panel px-3 py-2 text-xs hover:bg-white/5">
+              Copy Email
+            </button>
+          </div>
+          <p id="copiedToast" class="mt-2 text-xs text-white/45 hidden">Copied ✅</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT (exactly 8 lines) -->
+  <section id="about" class="mx-auto max-w-6xl px-5 py-10">
+    <div class="reveal panel p-7 neon-border">
+      <div class="flex items-center justify-between gap-4 flex-wrap">
+        <h2 class="text-xl font-semibold">About</h2>
+        <div class="text-xs text-white/50">8 lines • concise • high signal</div>
+      </div>
+
+      <ol class="mt-5 space-y-2 text-sm text-white/70 leading-7">
+        <li>1) I’m <span class="text-white">Mohamed Alaa Hussein</span>, a 4th-year <span class="text-white">Communications & Electronics</span> engineering student.</li>
+        <li>2) I build <span class="text-white">data pipelines</span> (ETL/ELT) that turn raw sources into analytics-ready datasets.</li>
+        <li>3) I’m currently training in <span class="text-white">DEPI Data Engineering</span> (MCIT) and treating it as hands-on industry experience.</li>
+        <li>4) <span class="text-[var(--neon)] font-semibold">USP:</span> I engineer pipelines like systems — <span class="text-white">observable</span>, <span class="text-white">scalable</span>, and <span class="text-white">maintainable</span>.</li>
+        <li>5) I prioritize <span class="text-white">data quality</span>: validations, clear schemas, and reproducible runs (not fragile scripts).</li>
+        <li>6) I work end-to-end: ingestion → transformation → modeling → delivery for dashboards and products.</li>
+        <li>7) Stack focus: <span class="text-white">Python</span>, <span class="text-white">SQL</span>, <span class="text-white">data modeling</span>, orchestration basics, and cloud fundamentals.</li>
+        <li>8) If you need a pipeline or clean modeling for your project, let’s talk — <span class="text-white">mohamedalaah5ss@gmail.com</span>.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="mx-auto max-w-6xl px-5 py-10">
+    <div class="reveal">
+      <div class="flex items-end justify-between gap-4 flex-wrap">
+        <div>
+          <h2 class="text-xl font-semibold">Skills</h2>
+          <p class="mt-2 text-sm muted">Structured like a real engineering stack.</p>
+        </div>
+        <span class="text-xs text-white/45">Tip: remove anything you don’t actually use yet</span>
+      </div>
+
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <div class="panel p-6 tilt">
+          <div class="flex items-center gap-2">
+            <i data-lucide="code-2" class="h-5 w-5 text-[var(--neon)]"></i>
+            <h3 class="font-semibold">Programming</h3>
+          </div>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs">
+            <span class="panel px-3 py-2">Python</span>
+            <span class="panel px-3 py-2">SQL</span>
+            <span class="panel px-3 py-2">Git/GitHub</span>
+          </div>
+          <p class="mt-4 text-xs text-white/55">Clean code, reusable modules, clear READMEs.</p>
+        </div>
+
+        <div class="panel p-6 tilt">
+          <div class="flex items-center gap-2">
+            <i data-lucide="layers" class="h-5 w-5 text-[var(--neon)]"></i>
+            <h3 class="font-semibold">Data Engineering</h3>
+          </div>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs">
+            <span class="panel px-3 py-2">ETL / ELT</span>
+            <span class="panel px-3 py-2">Data Modeling</span>
+            <span class="panel px-3 py-2">Data Quality</span>
+            <span class="panel px-3 py-2">Logging</span>
+            <span class="panel px-3 py-2">Orchestration (Basics)</span>
+          </div>
+          <p class="mt-4 text-xs text-white/55">Design first, then implement with observability.</p>
+        </div>
+
+        <div class="panel p-6 tilt">
+          <div class="flex items-center gap-2">
+            <i data-lucide="database" class="h-5 w-5 text-[var(--neon)]"></i>
+            <h3 class="font-semibold">Databases & Tools</h3>
+          </div>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs">
+            <span class="panel px-3 py-2">PostgreSQL / MySQL</span>
+            <span class="panel px-3 py-2">Docker (optional)</span>
+            <span class="panel px-3 py-2">Airflow (optional)</span>
+            <span class="panel px-3 py-2">Cloud Basics</span>
+          </div>
+          <p class="mt-4 text-xs text-white/55">Pick one DB and go deep — schema + indexes + performance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="mx-auto max-w-6xl px-5 py-10">
+    <div class="reveal">
+      <div class="flex items-end justify-between gap-4 flex-wrap">
+        <div>
+          <h2 class="text-xl font-semibold">Featured Projects</h2>
+          <p class="mt-2 text-sm muted">Built as engineering case studies: Problem → Approach → Outcome.</p>
+        </div>
+        <a class="text-xs text-white/60 hover:text-white underline decoration-white/20"
+           href="https://github.com/mohamedalaah5ss-oss" target="_blank" rel="noopener">
+          View GitHub
+        </a>
+      </div>
+
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <!-- Project 1 -->
+        <article class="panel p-6 tilt hover:neon-glow transition">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">End-to-End ETL Pipeline</h3>
+            <span class="text-[10px] text-white/60 border border-white/10 rounded-full px-3 py-1">DEPI</span>
+          </div>
+          <p class="mt-3 text-sm text-white/65 leading-7">
+            Ingest raw data, validate it, transform it into a clean schema, and load it for analytics and reporting.
+          </p>
+          <ul class="mt-4 space-y-2 text-xs text-white/60">
+            <li>• Focus: reliability, reproducibility, schema clarity</li>
+            <li>• Stack: Python • SQL</li>
+            <li>• Outcome: analytics-ready dataset + documented pipeline</li>
+          </ul>
+          <div class="mt-5 flex gap-2 text-xs">
+            <a class="panel px-3 py-2 hover:bg-white/5" href="#" target="_blank" rel="noopener">Repo (add link)</a>
+            <a class="panel px-3 py-2 hover:bg-white/5" href="#" target="_blank" rel="noopener">Docs (add link)</a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="panel p-6 tilt hover:neon-glow transition">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">Analytics Data Model</h3>
+            <span class="text-[10px] text-white/60 border border-white/10 rounded-full px-3 py-1">Modeling</span>
+          </div>
+          <p class="mt-3 text-sm text-white/65 leading-7">
+            Designed fact/dimension tables to power consistent KPIs and fast queries with clean definitions.
+          </p>
+          <ul class="mt-4 space-y-2 text-xs text-white/60">
+            <li>• Focus: star schema mindset, naming standards</li>
+            <li>• Stack: SQL</li>
+            <li>• Outcome: simpler dashboards + consistent metrics</li>
+          </ul>
+          <div class="mt-5 flex gap-2 text-xs">
+            <a class="panel px-3 py-2 hover:bg-white/5" href="#" target="_blank" rel="noopener">SQL (add link)</a>
+            <a class="panel px-3 py-2 hover:bg-white/5" href="#" target="_blank" rel="noopener">Diagram (add link)</a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="panel p-6 tilt hover:neon-glow transition">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">Data Quality Mini-System</h3>
+            <span class="text-[10px] text-white/60 border border-white/10 rounded-full px-3 py-1">Quality</span>
+          </div>
+          <p class="mt-3 text-sm text-white/65 leading-7">
+            Built validation checks + logging to detect bad inputs early and keep pipelines stable.
+          </p>
+          <ul class="mt-4 space-y-2 text-xs text-white/60">
+            <li>• Focus: validation rules, error traceability</li>
+            <li>• Stack: Python</li>
+            <li>• Outcome: fewer silent failures + clearer debugging</li>
+          </ul>
+          <div class="mt-5 flex gap-2 text-xs">
+            <a class="panel px-3 py-2 hover:bg-white/5" href="#" target="_blank" rel="noopener">Repo (add link)</a>
+            <a class="panel px-3 py-2 hover:bg-white/5" href="#" target="_blank" rel="noopener">Readme (add link)</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="mt-4 text-xs text-white/45">
+        Replace “add link” placeholders with your real repos once you upload them.
+      </p>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline" class="mx-auto max-w-6xl px-5 py-10">
+    <div class="reveal panel p-7 neon-border">
+      <div class="flex items-center justify-between gap-4 flex-wrap">
+        <div>
+          <h2 class="text-xl font-semibold">Timeline</h2>
+          <p class="mt-2 text-sm muted">Clear, recruiter-friendly story.</p>
+        </div>
+        <span class="text-xs text-white/50">Keep it short. High impact.</span>
+      </div>
+
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <div class="panel p-6 tilt">
+          <div class="flex items-center gap-2">
+            <i data-lucide="graduation-cap" class="h-5 w-5 text-[var(--neon)]"></i>
+            <h3 class="font-semibold">B.Sc. Communications & Electronics Engineering</h3>
+          </div>
+          <p class="mt-2 text-sm text-white/70 leading-7">
+            4th-year student with strong systems thinking, analytical problem-solving, and engineering discipline.
+          </p>
+        </div>
+
+        <div class="panel p-6 tilt">
+          <div class="flex items-center gap-2">
+            <i data-lucide="award" class="h-5 w-5 text-[var(--neon)]"></i>
+            <h3 class="font-semibold">DEPI — Data Engineering Track (MCIT)</h3>
+          </div>
+          <p class="mt-2 text-sm text-white/70 leading-7">
+            Hands-on training treated as practical experience: pipelines, modeling, validation, and documentation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="mx-auto max-w-6xl px-5 py-10">
+    <div class="reveal panel p-7 neon-border">
+      <div class="flex items-center justify-between gap-4 flex-wrap">
+        <div>
+          <h2 class="text-xl font-semibold">Contact</h2>
+          <p class="mt-2 text-sm muted">Fastest: email or LinkedIn.</p>
+        </div>
+        <span class="text-xs text-white/50">Open for internships / junior roles</span>
+      </div>
+
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <div class="panel p-5 tilt">
+          <div class="flex items-center gap-2">
+            <i data-lucide="mail" class="h-5 w-5 text-[var(--neon)]"></i>
+            <h3 class="font-semibold">Email</h3>
+          </div>
+          <p class="mt-2 text-sm text-white/80" id="emailText">mohamedalaah5ss@gmail.com</p>
+          <button id="copyEmail" class="mt-3 panel px-3 py-2 text-xs hover:bg-white/5">Copy email</button>
+          <p id="copyMsg" class="mt-2 text-xs text-white/45 hidden">Copied ✅</p>
+        </div>
+
+        <a class="panel p-5 tilt hover:neon-glow transition"
+           href="https://www.linkedin.com/in/mohammed-alaa-engineer/" target="_blank" rel="noopener">
+          <div class="flex items-center gap-2">
+            <i data-lucide="linkedin" class="h-5 w-5 text-[var(--neon)]"></i>
+            <h3 class="font-semibold">LinkedIn</h3>
+          </div>
+          <p class="mt-2 text-sm text-white/80">/in/mohammed-alaa-engineer</p>
+          <p class="mt-2 text-xs text-white/45">Click to open</p>
+        </a>
+
+        <a class="panel p-5 tilt hover:neon-glow transition"
+           href="https://github.com/mohamedalaah5ss-oss" target="_blank" rel="noopener">
+          <div class="flex items-center gap-2">
+            <i data-lucide="github" class="h-5 w-5 text-[var(--neon)]"></i>
+            <h3 class="font-semibold">GitHub</h3>
+          </div>
+          <p class="mt-2 text-sm text-white/80">mohamedalaah5ss-oss</p>
+          <p class="mt-2 text-xs text-white/45">Click to open</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="mx-auto max-w-6xl px-5 py-10 text-xs text-white/45">
+    © <span id="year"></span> Mohamed Alaa Hussein — Built with Neon UI
+  </footer>
+
+  <script>
+    // icons
+    lucide.createIcons();
+
+    // year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile nav
+    const toggleBtn = document.querySelector(".nav-toggle");
+    const menu = document.querySelector("#navMenu");
+    if (toggleBtn && menu) {
+      toggleBtn.addEventListener("click", () => {
+        const isOpen = menu.classList.toggle("open");
+        toggleBtn.setAttribute("aria-expanded", String(isOpen));
+      });
+      menu.querySelectorAll("a").forEach((a) => {
+        a.addEventListener("click", () => {
+          if (menu.classList.contains("open")) {
+            menu.classList.remove("open");
+            toggleBtn.setAttribute("aria-expanded", "false");
+          }
+        });
+      });
+    }
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => io.observe(el));
+
+    // Scrollspy
+    const links = document.querySelectorAll(".nav-link");
+    const ids = ["home","about","skills","projects","timeline","contact"];
+    const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
+
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        links.forEach(l => l.classList.remove("active"));
+        const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+        if (active) active.classList.add("active");
+      });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+    sections.forEach(s => spy.observe(s));
+
+    // Copy email (two buttons)
+    const copyMsg = document.getElementById("copyMsg");
+    async function copyEmail() {
+      try{
+        await navigator.clipboard.writeText("mohamedalaah5ss@gmail.com");
+        if (copyMsg) {
+          copyMsg.classList.remove("hidden");
+          setTimeout(()=> copyMsg.classList.add("hidden"), 1200);
+        }
+        const toast = document.getElementById("copiedToast");
+        if (toast) {
+          toast.classList.remove("hidden");
+          setTimeout(()=> toast.classList.add("hidden"), 1200);
+        }
+      }catch(e){}
+    }
+    const copyBtn = document.getElementById("copyEmail");
+    const copyBtnInline = document.getElementById("copyEmailInline");
+    if (copyBtn) copyBtn.addEventListener("click", copyEmail);
+    if (copyBtnInline) copyBtnInline.addEventListener("click", copyEmail);
+
+    // Cursor glow follow
+    const glow = document.getElementById("cursorGlow");
+    window.addEventListener("mousemove", (e) => {
+      if (!glow) return;
+      glow.style.left = e.clientX + "px";
+      glow.style.top = e.clientY + "px";
+    }, { passive:true });
+
+    // Premium typewriter
+    const roles = [
+      "Building ETL/ELT pipelines",
+      "Designing clean data models",
+      "Applying data quality checks",
+      "Learning orchestration & cloud"
+    ];
+    const tw = document.getElementById("tw");
+    let i=0, j=0, deleting=false;
+
+    function tick(){
+      if (!tw) return;
+      const word = roles[i];
+      tw.textContent = deleting ? word.slice(0, j--) : word.slice(0, j++);
+
+      if (!deleting && j === word.length + 1) { deleting = true; setTimeout(tick, 900); return; }
+      if (deleting && j === 0) { deleting=false; i = (i+1) % roles.length; }
+
+      setTimeout(tick, deleting ? 35 : 45);
+    }
+    tick();
+
+    // Card tilt (subtle)
+    const tilts = document.querySelectorAll(".tilt");
+    tilts.forEach(card => {
+      card.addEventListener("mousemove", (e) => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = `perspective(900px) rotateY(${x*6}deg) rotateX(${(-y)*6}deg) translateZ(0)`;
+      });
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "perspective(900px) rotateY(0deg) rotateX(0deg)";
+      });
+    });
+  </script>
+</body>
+</html>
