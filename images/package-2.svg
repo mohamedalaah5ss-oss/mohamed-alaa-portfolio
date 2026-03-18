@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07111f"/>
+      <stop offset="100%" stop-color="#0d1f35"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2dfcde"/>
+      <stop offset="100%" stop-color="#4bb4ff"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="24"/></filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+  <circle cx="180" cy="120" r="120" fill="#2dfcde" opacity="0.12" filter="url(#blur)"/>
+  <circle cx="1020" cy="110" r="120" fill="#4bb4ff" opacity="0.14" filter="url(#blur)"/>
+  <circle cx="600" cy="640" r="180" fill="#2dfcde" opacity="0.08" filter="url(#blur)"/>
+  <g opacity="0.08">
+    <path d="M0 90 H1200" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 180 H1200" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 270 H1200" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 360 H1200" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 450 H1200" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 540 H1200" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 630 H1200" stroke="#ffffff" stroke-width="1"/>
+    <path d="M150 0 V700" stroke="#ffffff" stroke-width="1"/>
+    <path d="M300 0 V700" stroke="#ffffff" stroke-width="1"/>
+    <path d="M450 0 V700" stroke="#ffffff" stroke-width="1"/>
+    <path d="M600 0 V700" stroke="#ffffff" stroke-width="1"/>
+    <path d="M750 0 V700" stroke="#ffffff" stroke-width="1"/>
+    <path d="M900 0 V700" stroke="#ffffff" stroke-width="1"/>
+    <path d="M1050 0 V700" stroke="#ffffff" stroke-width="1"/>
+  </g>
+  
+  <g filter="url(#shadow)">
+    <rect x="150" y="120" width="900" height="460" rx="34" fill="#0a1527" stroke="#1d3b63" stroke-width="2"/>
+    <text x="190" y="195" fill="#eaf2ff" font-size="42" font-family="Arial" font-weight="700">Standard</text>
+    <text x="190" y="235" fill="#9ec9ff" font-size="24" font-family="Arial">Two sources + clean model</text>
+    <rect x="205" y="300" width="180" height="135" rx="24" fill="#11233d" stroke="#4bb4ff" stroke-opacity="0.35"/>
+    <rect x="205" y="450" width="180" height="70" rx="22" fill="#11233d" stroke="#2dfcde" stroke-opacity="0.35"/>
+    <rect x="815" y="300" width="180" height="135" rx="24" fill="#11233d" stroke="#4bb4ff" stroke-opacity="0.35"/>
+    <rect x="570" y="336" width="115" height="150" rx="28" fill="#132844" stroke="url(#line)" stroke-width="3"/>
+    <text x="627" y="418" fill="#eaf2ff" font-size="30" font-family="Arial" text-anchor="middle" font-weight="700">Join</text>
+    <path d="M385 368h170M685 368h130" stroke="url(#line)" stroke-width="10" stroke-linecap="round"/>
+    <path d="M450 448h88" stroke="url(#line)" stroke-width="10" stroke-linecap="round"/>
+    <text x="295" y="380" fill="#eaf2ff" font-size="28" font-family="Arial" text-anchor="middle">Source A</text>
+    <text x="295" y="495" fill="#eaf2ff" font-size="25" font-family="Arial" text-anchor="middle">Logs</text>
+    <text x="905" y="380" fill="#eaf2ff" font-size="28" font-family="Arial" text-anchor="middle">Source B</text>
+  </g>
+
+</svg>

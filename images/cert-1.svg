@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07111f"/>
+      <stop offset="100%" stop-color="#0d1f35"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2dfcde"/>
+      <stop offset="100%" stop-color="#4bb4ff"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="24"/></filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+  <circle cx="180" cy="120" r="120" fill="#2dfcde" opacity="0.12" filter="url(#blur)"/>
+  <circle cx="1020" cy="110" r="120" fill="#4bb4ff" opacity="0.14" filter="url(#blur)"/>
+  <circle cx="600" cy="640" r="180" fill="#2dfcde" opacity="0.08" filter="url(#blur)"/>
+  <g opacity="0.08">
+    <path d="M0 90 H1200" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 180 H1200" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 270 H1200" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 360 H1200" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 450 H1200" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 540 H1200" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 630 H1200" stroke="#ffffff" stroke-width="1"/>
+    <path d="M150 0 V700" stroke="#ffffff" stroke-width="1"/>
+    <path d="M300 0 V700" stroke="#ffffff" stroke-width="1"/>
+    <path d="M450 0 V700" stroke="#ffffff" stroke-width="1"/>
+    <path d="M600 0 V700" stroke="#ffffff" stroke-width="1"/>
+    <path d="M750 0 V700" stroke="#ffffff" stroke-width="1"/>
+    <path d="M900 0 V700" stroke="#ffffff" stroke-width="1"/>
+    <path d="M1050 0 V700" stroke="#ffffff" stroke-width="1"/>
+  </g>
+  
+  <g filter="url(#shadow)">
+    <rect x="170" y="90" width="860" height="520" rx="34" fill="#0a1527" stroke="#1d3b63" stroke-width="2"/>
+    <rect x="220" y="150" width="760" height="400" rx="30" fill="#10213a" stroke="url(#line)" stroke-width="3"/>
+    <text x="600" y="232" fill="#eaf2ff" font-size="46" font-family="Arial" font-weight="700" text-anchor="middle">Generative AI</text>
+    <rect x="450" y="278" width="300" height="150" rx="26" fill="#132844" stroke="#4bb4ff" stroke-opacity="0.35"/>
+    <rect x="512" y="320" width="176" height="66" rx="18" fill="#0d1a2c"/>
+    <path d="M420 353h-60M780 353h60M600 248v-52M600 458v52" stroke="url(#line)" stroke-width="12" stroke-linecap="round"/>
+    <g fill="#2dfcde">
+      <circle cx="360" cy="353" r="12"/><circle cx="840" cy="353" r="12"/><circle cx="600" cy="190" r="12"/><circle cx="600" cy="516" r="12"/>
+    </g>
+  </g>
+
+</svg>

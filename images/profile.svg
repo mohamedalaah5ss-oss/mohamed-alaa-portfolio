@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07111f"/>
+      <stop offset="100%" stop-color="#0d1f35"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2dfcde"/>
+      <stop offset="100%" stop-color="#4bb4ff"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="24"/></filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+  <circle cx="180" cy="120" r="120" fill="#2dfcde" opacity="0.12" filter="url(#blur)"/>
+  <circle cx="820" cy="110" r="120" fill="#4bb4ff" opacity="0.14" filter="url(#blur)"/>
+  <circle cx="500" cy="940" r="180" fill="#2dfcde" opacity="0.08" filter="url(#blur)"/>
+  <g opacity="0.08">
+    <path d="M0 90 H1000" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 180 H1000" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 270 H1000" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 360 H1000" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 450 H1000" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 540 H1000" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 630 H1000" stroke="#ffffff" stroke-width="1"/>
+    <path d="M150 0 V1000" stroke="#ffffff" stroke-width="1"/>
+    <path d="M300 0 V1000" stroke="#ffffff" stroke-width="1"/>
+    <path d="M450 0 V1000" stroke="#ffffff" stroke-width="1"/>
+    <path d="M600 0 V1000" stroke="#ffffff" stroke-width="1"/>
+    <path d="M750 0 V1000" stroke="#ffffff" stroke-width="1"/>
+    <path d="M900 0 V1000" stroke="#ffffff" stroke-width="1"/>
+    <path d="M1050 0 V1000" stroke="#ffffff" stroke-width="1"/>
+  </g>
+  
+  <g filter="url(#shadow)">
+    <rect x="250" y="70" width="500" height="560" rx="42" fill="#0a1527" stroke="#1f436f" stroke-width="2"/>
+    <rect x="282" y="104" width="436" height="112" rx="24" fill="#0f2037" stroke="url(#line)" stroke-opacity="0.42"/>
+    <circle cx="500" cy="330" r="108" fill="#122642" stroke="url(#line)" stroke-width="3"/>
+    <circle cx="500" cy="302" r="44" fill="#dfe9ff" opacity="0.88"/>
+    <path d="M400 436c24-66 62-98 100-98s76 32 100 98" fill="#dfe9ff" opacity="0.88"/>
+    <path d="M320 176h360" stroke="#2dfcde" stroke-width="4" stroke-linecap="round" opacity="0.75"/>
+    <path d="M320 194h250" stroke="#4bb4ff" stroke-width="4" stroke-linecap="round" opacity="0.58"/>
+    <g opacity="0.85">
+      <rect x="324" y="480" width="108" height="52" rx="18" fill="#0f2037" stroke="#2dfcde" stroke-opacity="0.45"/>
+      <text x="378" y="513" fill="#dff7ff" font-size="26" font-family="Arial" text-anchor="middle">SQL</text>
+      <rect x="446" y="480" width="108" height="52" rx="18" fill="#0f2037" stroke="#4bb4ff" stroke-opacity="0.45"/>
+      <text x="500" y="513" fill="#dff7ff" font-size="22" font-family="Arial" text-anchor="middle">ETL</text>
+      <rect x="568" y="480" width="108" height="52" rx="18" fill="#0f2037" stroke="#2dfcde" stroke-opacity="0.45"/>
+      <text x="622" y="513" fill="#dff7ff" font-size="22" font-family="Arial" text-anchor="middle">DQ</text>
+    </g>
+    <g fill="#2dfcde">
+      <circle cx="294" cy="310" r="8"/>
+      <circle cx="714" cy="270" r="8"/>
+      <circle cx="660" cy="416" r="8"/>
+      <circle cx="334" cy="414" r="8"/>
+    </g>
+    <g stroke="url(#line)" stroke-width="3" opacity="0.7">
+      <path d="M302 310h68l30-42h65"/>
+      <path d="M714 270h-54l-32 48h-58"/>
+      <path d="M660 416h-70l-28-40h-48"/>
+      <path d="M334 414h70l28-40h48"/>
+    </g>
+  </g>
+
+</svg>
