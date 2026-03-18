@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Mohamed Alaa Hussein | Data Engineering Portfolio</title>
+  <meta name="description" content="Data Engineer — Python · SQL · ETL/ELT · Data Modeling · Data Quality"/>
+  <meta name="theme-color" content="#05070e"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+
+<!-- BG Canvas -->
+<canvas id="bgCanvas" aria-hidden="true"></canvas>
+<!-- Scroll progress -->
+<div id="scrollProg" aria-hidden="true"></div>
+<!-- Cursor -->
+<div id="cursorGlow" aria-hidden="true"></div>
+
+<!-- ══════ NAV ══════ -->
+<header>
+  <div style="max-width:1152px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px">
+    <a href="#home" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+      <span class="n-logo">&lt;MAH/&gt;</span>
+      <span class="n-tag hidden sm:inline">Data Engineer</span>
+    </a>
+    <button class="nav-toggle md:hidden" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu"
+      style="width:36px;height:36px;display:grid;place-items:center;border-radius:6px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.04);color:rgba(255,255,255,.70);cursor:pointer">
+      <i data-lucide="menu" class="h-4 w-4"></i>
+    </button>
+    <nav id="navMenu" class="nav-menu"
+      style="--nav-top:60px"
+      aria-label="Navigation">
+      <a class="n-link" href="#home">Home</a>
+      <a class="n-link" href="#about">About</a>
+      <a class="n-link" href="#usp">USP</a>
+      <a class="n-link" href="#education">Education</a>
+      <a class="n-link" href="#skills">Skills</a>
+      <a class="n-link" href="#experience">Work</a>
+      <a class="n-link" href="#services">Services</a>
+      <a class="n-link" href="#packages">Packages</a>
+      <a class="n-link" href="#certificates">Certs</a>
+      <a class="n-link" href="#testimonials">Reviews</a>
+      <a class="n-link" href="#cta">Contact</a>
+      <div class="hidden md:block" style="width:1px;height:16px;background:rgba(255,255,255,.07);margin:0 6px"></div>
+      <a class="btn btn-solid" href="#experience" style="font-size:11.5px;padding:7px 15px">
+        <i data-lucide="sparkles" class="h-3.5 w-3.5"></i>View Work
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ══════ 1) HERO ══════ -->
+<section id="home">
+  <div class="hero-section mx-auto" style="max-width:1152px;padding:32px 20px 24px">
+
+    <!-- Context bar -->
+    <div class="hero-topbar rev">
+      <div class="hero-breadcrumb">
+        <span>portfolio</span>
+        <span class="sep">/</span>
+        <span>Mohamed Alaa Hussein</span>
+        <span class="sep">/</span>
+        <span>Data Engineer</span>
+      </div>
+      <div class="hero-status">
+        <span class="hero-status-dot"></span>
+        AVAILABLE FOR PROJECTS
+      </div>
+    </div>
+
+    <!-- Main grid -->
+    <div class="hero-grid">
+
+      <!-- LEFT: Identity -->
+      <div class="hero-l rev" d="1">
+        <!-- Avatar + name -->
+        <div class="hero-ident">
+          <div class="hero-av-wrap">
+            <img src="images/profile.jpg" alt="Mohamed Alaa Hussein" class="hero-av" loading="eager"/>
+          </div>
+          <div class="hero-ident-info">
+            <div class="hero-name-sm">Mohamed Alaa Hussein</div>
+            <div class="hero-role-sm">Communications &amp; Data Engineer · Cairo, Egypt</div>
+          </div>
+        </div>
+
+        <!-- Headline -->
+        <div>
+          <h1 class="hero-headline">
+            Building<br/>
+            <span class="line2">Pipelines<br/>That Work.</span>
+          </h1>
+        </div>
+
+        <!-- Sub -->
+        <p class="hero-sub">
+          I turn raw, messy data into trusted, analytics-ready datasets.
+          ETL/ELT pipelines. Star-schema models. Zero silent failures.
+        </p>
+
+        <!-- Tags -->
+        <div class="hero-tags">
+          <span class="h-tag">Python</span>
+          <span class="h-tag">SQL</span>
+          <span class="h-tag">ETL / ELT</span>
+          <span class="h-tag">Data Modeling</span>
+          <span class="h-tag">Data Quality</span>
+          <span class="h-tag">Git</span>
+          <span class="h-tag">PostgreSQL</span>
+        </div>
+
+        <!-- Stats -->
+        <div class="hero-stats">
+          <div class="h-stat">
+            <div class="h-stat-n">3+</div>
+            <div class="h-stat-l">End-to-end<br/>Projects</div>
+          </div>
+          <div class="h-stat-sep"></div>
+          <div class="h-stat">
+            <div class="h-stat-n">100%</div>
+            <div class="h-stat-l">Documented<br/>Pipelines</div>
+          </div>
+          <div class="h-stat-sep"></div>
+          <div class="h-stat">
+            <div class="h-stat-n">2027</div>
+            <div class="h-stat-l">Expected<br/>Grad.</div>
+          </div>
+        </div>
+
+        <!-- CTAs -->
+        <div class="hero-ctas">
+          <a class="btn btn-solid" href="#experience">
+            <i data-lucide="folder-open" class="h-4 w-4"></i>View Projects
+          </a>
+          <a class="btn btn-ghost" href="#cta">
+            <i data-lucide="mail" class="h-4 w-4"></i>Contact
+          </a>
+          <a class="btn btn-ghost" href="cv.pdf" download>
+            <i data-lucide="download" class="h-4 w-4"></i>CV
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Terminal -->
+      <div class="hero-terminal rev" d="2" id="heroTerminal">
+        <div class="term-header">
+          <span class="term-dot" style="background:#ff5f56"></span>
+          <span class="term-dot" style="background:#ffbd2e"></span>
+          <span class="term-dot" style="background:#27c93f"></span>
+          <span class="term-title">pipeline.py — Data Engineering</span>
+        </div>
+        <div class="term-body" id="termBody">
+          <!-- JS fills this -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════ 2) ABOUT ══════ -->
+<section id="about" class="sec">
+  <div class="rev">
+    <div class="sec-head">
+      <div>
+        <span class="sec-num">01 / ABOUT</span>
+        <h2 class="sec-title">Who I Am</h2>
+        <p class="sec-sub">Background, focus, and engineering philosophy.</p>
+      </div>
+      <div class="flex gap-2 flex-wrap">
+        <a class="btn btn-solid" href="#cta"><i data-lucide="send" class="h-4 w-4"></i>Let's Talk</a>
+        <a class="btn btn-ghost" href="#experience"><i data-lucide="eye" class="h-4 w-4"></i>Work</a>
+      </div>
+    </div>
+
+    <div class="about-grid">
+      <!-- Photo column -->
+      <div class="about-photo-wrap">
+        <img src="images/profile.jpg" alt="Mohamed Alaa Hussein" class="about-photo" loading="lazy"/>
+        <div class="about-location">
+          <i data-lucide="map-pin" style="width:13px;height:13px;color:var(--g);flex-shrink:0"></i>
+          <span style="font-size:11px;color:var(--t2);font-family:var(--fm)">Cairo, Egypt</span>
+        </div>
+        <div class="about-tags-vert">
+          <span class="about-tag-v">Communications Engineering</span>
+          <span class="about-tag-v">Data Engineering</span>
+          <span class="about-tag-v">ETL · Modeling · Quality</span>
+        </div>
+      </div>
+      <!-- Text column -->
+      <div class="about-text">
+        <p style="margin-bottom:14px">
+          I'm Mohamed Alaa Hussein — a Data Engineer studying Communications &amp; Electronics Engineering at university,
+          with a deep focus on the full data pipeline lifecycle.
+        </p>
+        <p style="margin-bottom:14px">
+          My engineering background gives me something most data engineers lack: I think in <em>systems</em>.
+          The same rigour I apply to signal processing — isolate the noise, amplify the signal —
+          I apply to data: validate at the source, transform cleanly, deliver reliably.
+        </p>
+        <p style="margin-bottom:20px">
+          I build ETL/ELT pipelines, star-schema data models, and data quality layers.
+          My work is built to be <strong>reproducible, documented, and maintainable</strong> — not just "it works on my machine."
+        </p>
+        <div class="about-skill-grid">
+          <span class="ask">Python</span><span class="ask">SQL</span><span class="ask">ETL/ELT</span>
+          <span class="ask">Data Modeling</span><span class="ask">Validation</span><span class="ask">Logging</span>
+          <span class="ask">PostgreSQL</span><span class="ask">Git</span><span class="ask">Docker</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ 3) USP ══════ -->
+<section id="usp" class="sec">
+  <div class="rev">
+    <div class="sec-head">
+      <div>
+        <span class="sec-num">02 / USP</span>
+        <h2 class="sec-title">What Sets Me Apart</h2>
+        <p class="sec-sub">Four pillars that define how I build.</p>
+      </div>
+    </div>
+    <div class="usp-grid">
+      <div class="usp-card">
+        <div class="usp-n">01</div>
+        <div class="usp-ic g"><i data-lucide="cpu" style="width:17px;height:17px;color:var(--g)"></i></div>
+        <h3>Systems Mindset</h3>
+        <p>Pipelines designed like products — reproducible, observable, and maintainable under real conditions.</p>
+      </div>
+      <div class="usp-card">
+        <div class="usp-n">02</div>
+        <div class="usp-ic b"><i data-lucide="shield-check" style="width:17px;height:17px;color:var(--b)"></i></div>
+        <h3>Quality by Default</h3>
+        <p>Validation rules + structured logs baked in from day one — no silent failures allowed.</p>
+      </div>
+      <div class="usp-card">
+        <div class="usp-n">03</div>
+        <div class="usp-ic o"><i data-lucide="book-open" style="width:17px;height:17px;color:var(--o)"></i></div>
+        <h3>Docs First</h3>
+        <p>Clear schemas, metric definitions, and runbooks — so anyone can run the pipeline tomorrow.</p>
+      </div>
+      <div class="usp-card">
+        <div class="usp-n">04</div>
+        <div class="usp-ic g"><i data-lucide="target" style="width:17px;height:17px;color:var(--g)"></i></div>
+        <h3>Outcome Focused</h3>
+        <p>Faster refresh cycles, consistent KPIs, and analytics models built for real query performance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ 4) EDUCATION ══════ -->
+<section id="education" class="sec">
+  <div class="rev">
+    <div class="sec-head">
+      <div>
+        <span class="sec-num">03 / EDUCATION</span>
+        <h2 class="sec-title">Academic Background</h2>
+        <p class="sec-sub">Foundation that shapes how I approach data systems.</p>
+      </div>
+    </div>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-dot" aria-hidden="true"></div>
+        <div class="tl-card">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap">
+            <div>
+              <div class="tl-title">B.Sc. Communications &amp; Electronics Engineering</div>
+              <div class="tl-date">2022 — 2027 (Expected)</div>
+            </div>
+            <span class="tl-badge">Engineering</span>
+          </div>
+          <p class="tl-desc">Strong analytical and systems-engineering discipline — applied directly to building reliable, maintainable data infrastructure.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" aria-hidden="true"></div>
+        <div class="tl-card">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap">
+            <div>
+              <div class="tl-title">DEPI · MCIT — Data Engineering Program</div>
+              <div class="tl-date">Project-based intensive</div>
+            </div>
+            <span class="tl-badge">Data</span>
+          </div>
+          <p class="tl-desc">End-to-end projects across ETL/ELT, data modeling, validation, and documentation — built with production-grade habits.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ 5) SKILLS ══════ -->
+<section id="skills" class="sec">
+  <div class="rev">
+    <div class="sec-head">
+      <div>
+        <span class="sec-num">04 / SKILLS</span>
+        <h2 class="sec-title">Technical Stack</h2>
+        <p class="sec-sub">A focused, production-grade toolkit.</p>
+      </div>
+    </div>
+    <div class="sk-grid">
+      <div class="sk-card">
+        <div class="sk-ic g"><i data-lucide="code-2" style="width:16px;height:16px;color:var(--g)"></i></div>
+        <h3>Programming</h3>
+        <div class="sk-tags">
+          <span class="stag">Python</span>
+          <span class="stag">SQL</span>
+          <span class="stag">Git / GitHub</span>
+          <span class="stag">Bash</span>
+        </div>
+        <p class="sk-note">Clean code, reusable modules, strong READMEs.</p>
+      </div>
+      <div class="sk-card">
+        <div class="sk-ic b"><i data-lucide="layers" style="width:16px;height:16px;color:var(--b)"></i></div>
+        <h3>Data Engineering</h3>
+        <div class="sk-tags">
+          <span class="stag">ETL / ELT</span>
+          <span class="stag">Data Modeling</span>
+          <span class="stag">Data Quality</span>
+          <span class="stag">Validation</span>
+          <span class="stag">Logging</span>
+        </div>
+        <p class="sk-note">Design-first, then implement with full observability.</p>
+      </div>
+      <div class="sk-card">
+        <div class="sk-ic o"><i data-lucide="database" style="width:16px;height:16px;color:var(--o)"></i></div>
+        <h3>Databases &amp; Tools</h3>
+        <div class="sk-tags">
+          <span class="stag">PostgreSQL</span>
+          <span class="stag">MySQL</span>
+          <span class="stag">Docker</span>
+          <span class="stag">Orchestration</span>
+          <span class="stag">Cloud Basics</span>
+        </div>
+        <p class="sk-note">Schema design, indexes, and query performance awareness.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ 6) WORK EXPERIENCE ══════ -->
+<section id="experience" class="sec">
+  <div class="rev">
+    <div class="sec-head">
+      <div>
+        <span class="sec-num">05 / EXPERIENCE</span>
+        <h2 class="sec-title">Work Experience</h2>
+        <p class="sec-sub">Professional roles — replace placeholders with real data.</p>
+      </div>
+      <a class="btn btn-ghost" href="https://github.com/mohamedalaah5ss-oss" target="_blank" rel="noopener">
+        <i data-lucide="github" class="h-4 w-4"></i>GitHub
+      </a>
+    </div>
+
+    <div class="exp-tl">
+      <!-- Entry 1 -->
+      <div class="exp-item">
+        <div class="exp-mk" aria-hidden="true">
+          <i data-lucide="briefcase" style="width:14px;height:14px;color:var(--g)"></i>
+        </div>
+        <div class="exp-card">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap">
+            <div>
+              <div class="exp-role">[ اسم المسمى الوظيفي ]</div>
+              <div class="exp-co">[ اسم الشركة أو المؤسسة ]</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px">
+              <span class="exp-dates">[ شهر/سنة — شهر/سنة ]</span>
+              <span class="exp-type">[ Full-time / Freelance ]</span>
+            </div>
+          </div>
+          <p class="exp-desc">[ اكتب وصفاً موجزاً لمهامك ومسؤولياتك — قائماً على النتائج. ]</p>
+          <div class="exp-ach">
+            <div class="exp-ach-lbl">Key Achievements</div>
+            <div class="exp-ach-item">
+              <i data-lucide="chevron-right" style="width:13px;height:13px;color:var(--g);flex-shrink:0;margin-top:3px"></i>
+              <span>[ إنجاز أول — مثال: خفّضت وقت تحميل البيانات بنسبة X% ]</span>
+            </div>
+            <div class="exp-ach-item">
+              <i data-lucide="chevron-right" style="width:13px;height:13px;color:var(--g);flex-shrink:0;margin-top:3px"></i>
+              <span>[ إنجاز ثانٍ — مثال: طوّرت نظام validation يكشف الأخطاء تلقائياً ]</span>
+            </div>
+            <div class="exp-ach-item">
+              <i data-lucide="chevron-right" style="width:13px;height:13px;color:var(--g);flex-shrink:0;margin-top:3px"></i>
+              <span>[ إنجاز ثالث — مثال: وثّقت الـ pipeline بالكامل للفريق ]</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:12px">
+            <span class="stag">[ مهارة 1 ]</span><span class="stag">[ مهارة 2 ]</span>
+            <span class="stag">[ مهارة 3 ]</span><span class="stag">[ مهارة 4 ]</span>
+          </div>
+        </div>
+      </div>
+      <!-- Entry 2 -->
+      <div class="exp-item">
+        <div class="exp-mk" aria-hidden="true">
+          <i data-lucide="briefcase" style="width:14px;height:14px;color:var(--g)"></i>
+        </div>
+        <div class="exp-card">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap">
+            <div>
+              <div class="exp-role">[ اسم المسمى الوظيفي ]</div>
+              <div class="exp-co">[ اسم الشركة أو المؤسسة ]</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px">
+              <span class="exp-dates">[ شهر/سنة — شهر/سنة ]</span>
+              <span class="exp-type">[ نوع الدوام ]</span>
+            </div>
+          </div>
+          <p class="exp-desc">[ وصف الدور والمهام. ]</p>
+          <div class="exp-ach">
+            <div class="exp-ach-lbl">Key Achievements</div>
+            <div class="exp-ach-item">
+              <i data-lucide="chevron-right" style="width:13px;height:13px;color:var(--g);flex-shrink:0;margin-top:3px"></i>
+              <span>[ إنجاز أول ]</span>
+            </div>
+            <div class="exp-ach-item">
+              <i data-lucide="chevron-right" style="width:13px;height:13px;color:var(--g);flex-shrink:0;margin-top:3px"></i>
+              <span>[ إنجاز ثانٍ ]</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:12px">
+            <span class="stag">[ مهارة 1 ]</span><span class="stag">[ مهارة 2 ]</span><span class="stag">[ مهارة 3 ]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.05)">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+        <div style="width:30px;height:30px;border-radius:7px;background:rgba(0,220,130,.07);border:1px solid rgba(0,220,130,.13);display:grid;place-items:center">
+          <i data-lucide="folder-open" style="width:14px;height:14px;color:var(--g)"></i>
+        </div>
+        <div>
+          <div style="font-family:var(--fh);font-size:.875rem;font-weight:600;color:var(--t1)">Selected Projects</div>
+          <div style="font-size:11px;color:var(--t3)">Click to view full details</div>
+        </div>
+      </div>
+      <div class="proj-grid">
+        <button class="proj-card" type="button" data-project="etl">
+          <div class="proj-arrow"><i data-lucide="arrow-up-right" style="width:12px;height:12px;color:var(--g)"></i></div>
+          <span class="proj-n">01 / ETL</span>
+          <div class="proj-title">End-to-End ETL Pipeline</div>
+          <p class="proj-desc">Ingest → validate → transform → load into analytics-ready tables with reliable, reproducible runs.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:4px">
+            <span class="stag">Python</span><span class="stag">SQL</span><span class="stag">ETL/ELT</span>
+          </div>
+        </button>
+        <button class="proj-card" type="button" data-project="model">
+          <div class="proj-arrow"><i data-lucide="arrow-up-right" style="width:12px;height:12px;color:var(--g)"></i></div>
+          <span class="proj-n">02 / MODEL</span>
+          <div class="proj-title">Analytics Data Model</div>
+          <p class="proj-desc">Fact/dimension star schema for consistent KPIs and fast reporting queries across teams.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:4px">
+            <span class="stag">SQL</span><span class="stag">Star Schema</span><span class="stag">Metrics</span>
+          </div>
+        </button>
+        <button class="proj-card" type="button" data-project="quality">
+          <div class="proj-arrow"><i data-lucide="arrow-up-right" style="width:12px;height:12px;color:var(--g)"></i></div>
+          <span class="proj-n">03 / QUALITY</span>
+          <div class="proj-title">Data Quality System</div>
+          <p class="proj-desc">Validation checks + structured logs that catch bad inputs early and keep pipelines stable.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:4px">
+            <span class="stag">Python</span><span class="stag">Validation</span><span class="stag">Logging</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ 7) SERVICES ══════ -->
+<section id="services" class="sec">
+  <div class="rev">
+    <div class="sec-head">
+      <div>
+        <span class="sec-num">06 / SERVICES</span>
+        <h2 class="sec-title">Services</h2>
+        <p class="sec-sub">Request any of these directly.</p>
+      </div>
+    </div>
+    <div class="svc-grid">
+      <article class="svc-card">
+        <div class="svc-stripe" style="background:linear-gradient(90deg,var(--g),var(--b))"></div>
+        <img src="images/service-1.png" alt="" class="svc-img" loading="lazy"/>
+        <div class="svc-ic g"><i data-lucide="workflow" style="width:16px;height:16px;color:var(--g)"></i></div>
+        <h3>ETL/ELT Pipeline Build</h3>
+        <p>Raw sources to curated tables — validation, logging, and full documentation included.</p>
+        <a class="btn btn-ghost" href="#cta" style="font-size:11.5px">Request this →</a>
+      </article>
+      <article class="svc-card">
+        <div class="svc-stripe" style="background:linear-gradient(90deg,var(--b),var(--o))"></div>
+        <img src="images/service-2.png" alt="" class="svc-img" loading="lazy"/>
+        <div class="svc-ic b"><i data-lucide="layout-grid" style="width:16px;height:16px;color:var(--b)"></i></div>
+        <h3>Analytics Data Modeling</h3>
+        <p>Star schema + metric definitions for consistent KPIs and fast analytics queries.</p>
+        <a class="btn btn-ghost" href="#cta" style="font-size:11.5px">Request this →</a>
+      </article>
+      <article class="svc-card">
+        <div class="svc-stripe" style="background:linear-gradient(90deg,var(--o),var(--g))"></div>
+        <img src="images/service-3.png" alt="" class="svc-img" loading="lazy"/>
+        <div class="svc-ic o"><i data-lucide="badge-check" style="width:16px;height:16px;color:var(--o)"></i></div>
+        <h3>Data Quality &amp; Validation</h3>
+        <p>Checks, alerts, and structured logs that eliminate silent failures and build data trust.</p>
+        <a class="btn btn-ghost" href="#cta" style="font-size:11.5px">Request this →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ 8) PACKAGES ══════ -->
+<section id="packages" class="sec">
+  <div class="rev glass ring" style="padding:28px">
+    <div class="sec-head">
+      <div>
+        <span class="sec-num">07 / PACKAGES</span>
+        <h2 class="sec-title">Packages</h2>
+        <p class="sec-sub">Choose a tier, then customise the scope.</p>
+      </div>
+    </div>
+    <div class="pkg-grid">
+      <article class="pkg-card">
+        <img src="images/package-1.jpg" alt="" class="pkg-img" loading="lazy"/>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+          <div class="pkg-name">Starter</div>
+          <span class="pill">Quick win</span>
+        </div>
+        <div style="flex:1">
+          <div class="pkg-feature"><div class="pkg-chk"><i data-lucide="check" style="width:9px;height:9px;color:var(--g)"></i></div>One dataset / source</div>
+          <div class="pkg-feature"><div class="pkg-chk"><i data-lucide="check" style="width:9px;height:9px;color:var(--g)"></i></div>Basic transformation</div>
+          <div class="pkg-feature"><div class="pkg-chk"><i data-lucide="check" style="width:9px;height:9px;color:var(--g)"></i></div>Simple validation checks</div>
+          <div class="pkg-feature"><div class="pkg-chk"><i data-lucide="check" style="width:9px;height:9px;color:var(--g)"></i></div>Short documentation</div>
+        </div>
+        <a class="btn btn-solid" href="#cta" style="margin-top:16px;justify-content:center">Get Starter</a>
+      </article>
+      <article class="pkg-card featured ring">
+        <img src="images/package-2.jpg" alt="" class="pkg-img" loading="lazy"/>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+          <div class="pkg-name">Standard</div>
+          <span class="pkg-badge">Most Popular</span>
+        </div>
+        <div style="flex:1">
+          <div class="pkg-feature"><div class="pkg-chk"><i data-lucide="check" style="width:9px;height:9px;color:var(--g)"></i></div>Two sources + join logic</div>
+          <div class="pkg-feature"><div class="pkg-chk"><i data-lucide="check" style="width:9px;height:9px;color:var(--g)"></i></div>Clean schema / model</div>
+          <div class="pkg-feature"><div class="pkg-chk"><i data-lucide="check" style="width:9px;height:9px;color:var(--g)"></i></div>Structured logging</div>
+          <div class="pkg-feature"><div class="pkg-chk"><i data-lucide="check" style="width:9px;height:9px;color:var(--g)"></i></div>Reproducible run steps</div>
+        </div>
+        <a class="btn btn-solid" href="#cta" style="margin-top:16px;justify-content:center;box-shadow:0 0 0 1px rgba(0,220,130,.30),0 4px 24px rgba(0,220,130,.28)">Get Standard</a>
+      </article>
+      <article class="pkg-card">
+        <img src="images/package-3.jpg" alt="" class="pkg-img" loading="lazy"/>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+          <div class="pkg-name">Premium</div>
+          <span class="pill">Production-ready</span>
+        </div>
+        <div style="flex:1">
+          <div class="pkg-feature"><div class="pkg-chk"><i data-lucide="check" style="width:9px;height:9px;color:var(--g)"></i></div>Multi-step pipeline</div>
+          <div class="pkg-feature"><div class="pkg-chk"><i data-lucide="check" style="width:9px;height:9px;color:var(--g)"></i></div>Data quality suite</div>
+          <div class="pkg-feature"><div class="pkg-chk"><i data-lucide="check" style="width:9px;height:9px;color:var(--g)"></i></div>Monitoring-ready logs</div>
+          <div class="pkg-feature"><div class="pkg-chk"><i data-lucide="check" style="width:9px;height:9px;color:var(--g)"></i></div>Full documentation</div>
+        </div>
+        <a class="btn btn-solid" href="#cta" style="margin-top:16px;justify-content:center">Get Premium</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ 9) CERTIFICATES ══════ -->
+<section id="certificates" class="sec">
+  <div class="rev">
+    <div class="sec-head">
+      <div>
+        <span class="sec-num">08 / CERTIFICATES</span>
+        <h2 class="sec-title">Certificates</h2>
+        <p class="sec-sub">Verified learning milestones with proof links.</p>
+      </div>
+    </div>
+    <div class="cert-grid">
+      <article class="cert-card">
+        <div class="cert-img-wrap"><img src="images/cert-1.jpg" alt="Generative AI cert" loading="lazy"/></div>
+        <div class="cert-title">Generative AI</div>
+        <div class="cert-issuer">NVIDIA · Deep Learning Institute · 2026</div>
+        <a class="btn btn-ghost" href="#cta" style="font-size:11px">View Certificate →</a>
+      </article>
+      <article class="cert-card">
+        <div class="cert-img-wrap"><img src="images/cert-2.jpg" alt="SQL cert" loading="lazy"/></div>
+        <div class="cert-title">SQL Certificate</div>
+        <div class="cert-issuer">Mahara-Tech · 2025</div>
+        <a class="btn btn-ghost" href="#cta" style="font-size:11px">View Certificate →</a>
+      </article>
+      <article class="cert-card">
+        <div class="cert-img-wrap"><img src="images/cert-3.jpg" alt="Python cert" loading="lazy"/></div>
+        <div class="cert-title">Python Certificate</div>
+        <div class="cert-issuer">Mahara-Tech · 2025</div>
+        <a class="btn btn-ghost" href="#cta" style="font-size:11px">View Certificate →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ 10) TESTIMONIALS ══════ -->
+<section id="testimonials" class="sec">
+  <div class="rev glass ring" style="padding:28px">
+    <div class="sec-head">
+      <div>
+        <span class="sec-num">09 / TESTIMONIALS</span>
+        <h2 class="sec-title">What People Say</h2>
+        <p class="sec-sub">Feedback from collaborators and mentors.</p>
+      </div>
+    </div>
+    <div class="test-grid">
+      <figure class="test-card">
+        <div class="test-stars"><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span></div>
+        <blockquote class="test-quote">"Dedicated and highly efficient. Consistently delivers high-quality work within agreed timelines. A key asset to any team."</blockquote>
+        <figcaption style="display:flex;align-items:center;gap:10px">
+          <div class="test-av" style="background:linear-gradient(135deg,var(--g),var(--b))">H</div>
+          <div><div class="test-name">Hajar Al-Nhass</div><div class="test-role">Freelance Trainer</div></div>
+        </figcaption>
+      </figure>
+      <figure class="test-card">
+        <div class="test-stars"><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span></div>
+        <blockquote class="test-quote">"Strong attention to data quality. Issues were caught early with helpful, well-structured logs."</blockquote>
+        <figcaption style="display:flex;align-items:center;gap:10px">
+          <div class="test-av" style="background:linear-gradient(135deg,var(--b),var(--o))">M</div>
+          <div><div class="test-name">Dr Mohamed Adel</div><div class="test-role">Instructor</div></div>
+        </figcaption>
+      </figure>
+      <figure class="test-card">
+        <div class="test-stars"><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span><span class="test-star">★</span></div>
+        <blockquote class="test-quote">"The data model made our reporting simpler and much faster. Clean, well-structured, and maintainable."</blockquote>
+        <figcaption style="display:flex;align-items:center;gap:10px">
+          <div class="test-av" style="background:linear-gradient(135deg,var(--o),var(--g))">H</div>
+          <div><div class="test-name">Hendawy</div><div class="test-role">Computer Engineer</div></div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ 11) CONTACT ══════ -->
+<section id="cta" class="sec">
+  <div class="rev glass ring" style="padding:28px;background:rgba(0,220,130,.025)">
+    <div class="sec-head">
+      <div>
+        <span class="sec-num">10 / CONTACT</span>
+        <h2 class="sec-title">Let's Work Together</h2>
+        <p class="sec-sub">Fastest reply: email or LinkedIn.</p>
+      </div>
+    </div>
+    <div class="cta-grid" style="margin-bottom:20px">
+      <div class="cta-card">
+        <div class="cta-ic g"><i data-lucide="mail" style="width:16px;height:16px;color:var(--g)"></i></div>
+        <div class="cta-label">Email</div>
+        <div class="cta-val">mohamedalaah5ss@gmail.com</div>
+        <button id="copyEmail" class="btn btn-ghost" type="button" style="font-size:11px;padding:6px 12px;margin-top:8px">
+          <i data-lucide="copy" class="h-3 w-3"></i>Copy
+        </button>
+        <span id="copyMsg" class="hidden" style="font-size:10px;color:var(--g);margin-top:4px" aria-live="polite">Copied ✓</span>
+      </div>
+      <a class="cta-card" href="https://www.linkedin.com/in/mohammed-alaa-engineer/" target="_blank" rel="noopener" style="text-decoration:none">
+        <div class="cta-ic b"><i data-lucide="linkedin" style="width:16px;height:16px;color:var(--b)"></i></div>
+        <div class="cta-label">LinkedIn</div>
+        <div class="cta-val">/in/mohammed-alaa-engineer</div>
+        <div class="cta-hint">Click to open ↗</div>
+      </a>
+      <a class="cta-card" href="https://github.com/mohamedalaah5ss-oss" target="_blank" rel="noopener" style="text-decoration:none">
+        <div class="cta-ic o"><i data-lucide="github" style="width:16px;height:16px;color:var(--o)"></i></div>
+        <div class="cta-label">GitHub</div>
+        <div class="cta-val">mohamedalaah5ss-oss</div>
+        <div class="cta-hint">Click to open ↗</div>
+      </a>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <a class="btn btn-solid" href="mailto:mohamedalaah5ss@gmail.com" style="box-shadow:0 0 0 1px rgba(0,220,130,.24),0 4px 22px rgba(0,220,130,.24)">
+        <i data-lucide="send" class="h-4 w-4"></i>Send Email
+      </a>
+      <a class="btn btn-ghost" href="cv.pdf" download>
+        <i data-lucide="download" class="h-4 w-4"></i>Download CV
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <div class="foot-line"></div>
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <span class="n-logo" style="font-size:13px">&lt;MAH/&gt;</span>
+    <span style="font-size:10.5px;color:var(--t3);font-family:var(--fm)">
+      © <span id="year"></span> Mohamed Alaa Hussein · Data Engineer · Cairo, Egypt
+    </span>
+    <div style="display:flex;gap:14px">
+      <a href="https://www.linkedin.com/in/mohammed-alaa-engineer/" target="_blank" style="font-size:10.5px;color:var(--t3);text-decoration:none;font-family:var(--fm)">LinkedIn</a>
+      <a href="https://github.com/mohamedalaah5ss-oss" target="_blank" style="font-size:10.5px;color:var(--t3);text-decoration:none;font-family:var(--fm)">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════ MODAL ══════ -->
+<div id="projectModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="projectTitle" aria-describedby="projectDesc">
+  <div class="modal-bg" data-close="true"></div>
+  <div class="modal-card">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px">
+      <div>
+        <h3 id="projectTitle" class="modal-title">—</h3>
+        <p id="projectSubtitle" class="modal-sub">—</p>
+      </div>
+      <button id="closeModal" type="button" aria-label="Close"
+        style="width:32px;height:32px;border-radius:6px;border:1px solid var(--br);background:rgba(255,255,255,.03);display:grid;place-items:center;cursor:pointer;color:var(--t2);flex-shrink:0">
+        <i data-lucide="x" style="width:14px;height:14px"></i>
+      </button>
+    </div>
+    <div class="hr"></div>
+    <p id="projectDesc" class="modal-desc" style="margin-bottom:16px"></p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+      <div style="padding:14px;border-radius:8px;background:var(--surface);border:1px solid var(--br)">
+        <div style="font-size:9.5px;color:var(--t3);letter-spacing:.09em;text-transform:uppercase;margin-bottom:8px;font-family:var(--fm)">Stack</div>
+        <div id="projectStack" style="display:flex;flex-wrap:wrap;gap:5px"></div>
+      </div>
+      <div style="padding:14px;border-radius:8px;background:var(--surface);border:1px solid var(--br)">
+        <div style="font-size:9.5px;color:var(--t3);letter-spacing:.09em;text-transform:uppercase;margin-bottom:8px;font-family:var(--fm)">Highlights</div>
+        <ul id="projectHighlights" style="list-style:none;display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--t2)"></ul>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:7px">
+      <a id="projectRepo" class="btn btn-ghost" href="#" target="_blank" rel="noopener" style="font-size:11.5px">
+        <i data-lucide="github" style="width:14px;height:14px"></i>Repo
+      </a>
+      <a id="projectDocs" class="btn btn-ghost" href="#" target="_blank" rel="noopener" style="font-size:11.5px">
+        <i data-lucide="file-text" style="width:14px;height:14px"></i>Docs
+      </a>
+      <a class="btn btn-ghost" href="#cta" style="font-size:11.5px">
+        <i data-lucide="mail" style="width:14px;height:14px"></i>Discuss
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Fix mobile nav positioning -->
+<style>
+@media(max-width:767px){
+  #navMenu{
+    position:absolute!important;
+    left:16px!important;right:16px!important;top:62px!important;
+    flex-direction:column!important;
+    gap:4px!important;padding:12px!important;
+    border-radius:12px!important;
+  }
+}
+</style>
+
+<script src="./script.js"></script>
+</body>
+</html>
